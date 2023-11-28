@@ -1,18 +1,18 @@
 abstract class House {
   protected doorIsOpened: boolean;
-  protected key: Key;
+  protected key: string;
   public abstract openDoor(key: Key): void;
   public comeIn(tenant: Person): void {}
 }
 class MyHouse extends House {
-  doorIsOpened: boolean = false;
+  doorIsOpened = false;
   private tenants: Person[] = [];
   constructor(key: Key) {
     super();
-    this.key = key;
+
   }
   openDoor(key: Key): void {
-    if (key.getSignature() === this.key.getSignature()) {
+    if (key.getSignature() === key.getSignature()) {
       this.doorIsOpened = true;
     }
   }
