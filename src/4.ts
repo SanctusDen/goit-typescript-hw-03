@@ -1,4 +1,6 @@
 abstract class House {
+   constructor(key: Key) {
+  }
   protected doorIsOpened: boolean = false;
   protected key: Key;
   public abstract openDoor(key: Key): void;
@@ -11,9 +13,8 @@ abstract class House {
 };
 
 class MyHouse extends House {
-  constructor(key: Key) {
-    super();
-
+  constructor() {
+    super(key)
   }
   openDoor(key: Key): void {
     if (key.getSignature() === this.key.getSignature()) {
@@ -42,7 +43,7 @@ class Person {
 };
 
 const key = new Key();
-const house = new MyHouse(key);
+const house = new MyHouse();
 const person = new Person(key);
 house.openDoor(person.getKey());
 
